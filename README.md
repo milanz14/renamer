@@ -10,3 +10,10 @@
 `node renamer.js png jpg`
 
 - the above code would rename every png into jpg
+
+### How to review
+
+`git clone` this repository
+`cd renamer`
+`drag/copy your files over into the root directory`
+`to convert files, follow the instructions as per the 'How does it work' section`
