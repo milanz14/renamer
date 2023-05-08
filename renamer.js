@@ -1,5 +1,6 @@
 const { readdir } = require("fs/promises");
 const path = require("path");
+const { rename } = require("fs");
 
 // pass in file type to be searched for
 const firstType = process.argv[2];
@@ -17,11 +18,9 @@ const getFilesFromDir = async (dir, name) => {
       splitUpBaseString[1] = secondType;
       const newString = splitUpBaseString.join(".");
       filename.base = newString;
-      matchingFiles.push(filename);
-      console.log(matchingFiles);
+      console.log(filename);
     }
   }
-  console.log(matchingFiles);
 };
 
 getFilesFromDir("./");
