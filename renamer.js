@@ -1,5 +1,6 @@
-const { readdir } = require("fs/promises");
 const path = require("path");
+const fs = require("fs");
+const { readdir } = require("fs/promises");
 
 // pass in file type to be searched for
 const firstType = process.argv[2];
@@ -7,21 +8,22 @@ const firstType = process.argv[2];
 const secondType = process.argv[3];
 
 const getFilesFromDir = async (dir, name) => {
-  const matchingFiles = [];
   const files = await readdir(dir);
+
   for (const file of files) {
     const filename = path.parse(file);
     if (filename.ext === `.${firstType}`) {
-      filename.ext = `.${secondType}`;
-      const splitUpBaseString = filename.base.split(".");
-      splitUpBaseString[1] = secondType;
-      const newString = splitUpBaseString.join(".");
-      filename.base = newString;
-      matchingFiles.push(filename);
-      console.log(matchingFiles);
+      const formattedFileName = path.format(filename);
+      const nameBeforeDot = formattedFileName.split(".")[0];
+      fs.rename(formattedFileName, `${nameBeforeDot}.${secondType}`, () => {
+        console.log(`${nameBeforeDot} extension updated!`);
+      });
+    } else {
+      console.log(
+        `'${filename.name}' does not match ${firstType} file extension. Skipping.`
+      );
     }
   }
-  console.log(matchingFiles);
 };
 
 getFilesFromDir("./");
