@@ -7,9 +7,8 @@ const firstType = process.argv[2];
 // pass in second file type for renaming
 const secondType = process.argv[3];
 
-const getFilesFromDir = async (dir, name) => {
+const getFilesFromDir = async (dir) => {
   const files = await readdir(dir);
-
   for (const file of files) {
     const filename = path.parse(file);
     if (filename.ext === `.${firstType}`) {
