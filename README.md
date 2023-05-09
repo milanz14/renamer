@@ -4,14 +4,14 @@
 
 ### How does it work
 
-- Rename takes in the expected extension name and a second extension name
+- Renamer takes in the expected extension name and a second extension name
 - it will review all files in the directory if they match the input extension
 
 `node renamer.js png jpg`
 
 - the above code would rename every png into jpg
 
-### How to review
+### To Run Locally
 
 - `git clone` this repository
 - `cd renamer`
