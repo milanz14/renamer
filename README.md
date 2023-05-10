@@ -6,7 +6,7 @@
 ### Tech
 <hr />
 
-- [Typescript]()
+- [Typescript](https://www.typescriptlang.org/)
 - [ts-node](https://www.npmjs.com/package/ts-node)
 
 ### How does it work
