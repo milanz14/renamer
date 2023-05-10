@@ -15,7 +15,9 @@
 - Renamer takes in the expected extension name and a second extension name
 - it will review all files in the directory if they match the input extension
 
-`ts-node renamer.js png jpg`
+```
+  ts-node renamer.js png jpg
+```
 
 - the above code would rename every png into jpg
 
