@@ -3,17 +3,17 @@ const fs = require("fs");
 const { readdir } = require("fs/promises");
 
 // pass in file type to be searched for
-const firstType = process.argv[2];
+const firstType: string = process.argv[2];
 // pass in second file type for renaming
-const secondType = process.argv[3];
+const secondType: string = process.argv[3];
 
-const getFilesFromDir = async (dir) => {
-  const files = await readdir(dir);
+const getFilesFromDir = async (dir: string): Promise<void> => {
+  const files: string[] = await readdir(dir);
   for (const file of files) {
-    const filename = path.parse(file);
+    const filename: { [key: string]: string } = path.parse(file);
     if (filename.ext === `.${firstType}`) {
-      const formattedFileName = path.format(filename);
-      const nameBeforeDot = formattedFileName.split(".")[0];
+      const formattedFileName: string = path.format(filename);
+      const nameBeforeDot: string = formattedFileName.split(".")[0];
       fs.rename(formattedFileName, `${nameBeforeDot}.${secondType}`, () => {
         console.log(`${nameBeforeDot} extension updated!`);
       });
