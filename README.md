@@ -16,7 +16,7 @@
 - it will review all files in the directory if they match the input extension
 
 ```
-  ts-node renamer.js png jpg
+  ts-node renamer.ts png jpg
 ```
 
 - the above code would rename every png into jpg
